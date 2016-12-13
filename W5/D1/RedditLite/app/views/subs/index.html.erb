@@ -1,0 +1,7 @@
+<h1>Front Page of the Internet</h1>
+
+<ul>
+  <% @subs.each do |sub| %>
+ <li>  <%= link_to sub.title, sub %></li>
+  <% end %>
+</ul>

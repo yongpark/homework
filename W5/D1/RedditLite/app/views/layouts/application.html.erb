@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RedditLite</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error|  %>
+        <%= error %>
+      <% end  %>
+    <%end %>
+    <% if !current_user.nil? && logged_in? %>
+      <p> Logged in as : <%= current_user.username %></p>
+      <%=  button_to "Logout", session_url, method: :delete %>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>
